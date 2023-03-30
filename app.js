@@ -2,7 +2,6 @@ const express = require("express")
 const { ExpressPeerServer } = require("peer")
 const { v4: uuidv4 } = require("uuid")
 const cors = require("cors")
-const serverless = require("serverless-http")
 
 //CORS fr axios same-origin policy unless browser will block
 
@@ -69,8 +68,12 @@ io.on("connection", (socket) => {
 })
 
 
-peerServer.listen(3002)
+peerServer.listen(3002, () => {
+    console.log("Peer server running on port 3002")
+})
 
-module.exports.handler = serverless(server)
+server.listen(8000, () => {
+    console.log("server running on port 8000")
+})
 
 
