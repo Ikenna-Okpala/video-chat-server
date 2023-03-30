@@ -12,7 +12,7 @@ const cors = require("cors")
 const app = express()
 
 
-const http = require("http")
+const http = require("node:http")
 
 const server = http.Server(app)
 const peerServer = http.Server(app)
@@ -72,8 +72,8 @@ peerServer.listen(3002, () => {
     console.log("Peer server running on port 3002")
 })
 
-server.listen(8000, () => {
-    console.log("server running on port 8000")
+server.listen(3001, () => {
+    console.log("server running on port 3001")
 })
 
 
